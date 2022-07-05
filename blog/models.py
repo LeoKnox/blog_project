@@ -19,11 +19,11 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
     objects = models.Manager()
-    published = PublishedManager
+    published = PublishedManager()
     class Meta:
         ordering = ('-publish',)
     def get_absolute_url(self):
-        return reversse('blog:post_detail',
+        return reverse('blog:post_detail',
                             args=[self.publish.year,
                                     self.publish.month,
                                     self.publish.day,

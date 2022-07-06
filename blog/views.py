@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paaginator, EmptyPage, PageNotAnInteger
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post
 
 def post_list(request):
-    posts = Post.published.all()
+    object_list = Post.published.all()
     paginator = Paginator(object_list, 3)
     page = request.GET.get('page')
     try:

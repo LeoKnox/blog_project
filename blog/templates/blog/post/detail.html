@@ -16,6 +16,7 @@
         {{total_comments }} comment{{ total_comments|pluralize }}
     </h2>
     {% endwith %}
+    {% comment %}
     {% for post in similar_posts %}
         <p>
             <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
@@ -23,6 +24,7 @@
     {% empty %}
         There are no similar posts ... yet.
     {% endfor %}
+    {% endcomment %}
     {% for comment in comments %}
         <div class="comment">
             <p class="info">
